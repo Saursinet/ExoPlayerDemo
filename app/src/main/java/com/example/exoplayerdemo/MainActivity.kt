@@ -18,7 +18,6 @@ import com.google.android.exoplayer2.ui.PlayerView
 import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
-import com.google.android.exoplayer2.video.VideoSize
 import java.io.Serializable
 
 class MainActivity : AppCompatActivity(), Player.Listener {
@@ -27,7 +26,6 @@ class MainActivity : AppCompatActivity(), Player.Listener {
     private var mediaSource: MediaSource? = null
     private var mediaMetadataRetriever: MediaMetadataRetriever? = null
     private var playerView: PlayerView? = null
-    var rotationValue: Float? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -107,12 +105,6 @@ class MainActivity : AppCompatActivity(), Player.Listener {
                 error("Unsupported type")
             }
         }
-    }
-
-    override fun onVideoSizeChanged(videoSize: VideoSize) {
-        val videoSizeUpdated = VideoSize(videoSize.width, videoSize.height, rotationValue?.toInt()?:0, videoSize.pixelWidthHeightRatio)
-
-        super.onVideoSizeChanged(videoSizeUpdated)
     }
 
 }
