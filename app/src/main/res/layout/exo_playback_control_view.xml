@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spacing_2xl"
+        android:layout_gravity="bottom"
+        android:background="@color/black"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/spacing_medium"
+        android:paddingEnd="@dimen/spacing_medium">
+
+        <LinearLayout
+            android:id="@+id/play_button_holder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@id/exo_play"
+                android:layout_width="@dimen/spacing_xl"
+                android:layout_height="@dimen/spacing_xl"
+                android:background="@null"
+                android:padding="@dimen/spacing_medium" />
+
+            <ImageButton
+                android:id="@id/exo_pause"
+                android:layout_width="@dimen/spacing_xl"
+                android:layout_height="@dimen/spacing_xl"
+                android:background="@null"
+                android:padding="@dimen/spacing_medium"
+                tools:visibility="visible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/video_player_progress_holder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_medium"
+            android:layout_marginEnd="@dimen/spacing_medium"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/extra_button_holder"
+            app:layout_constraintStart_toEndOf="@id/play_button_holder"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@id/exo_position"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="0:02" />
+
+            <TextView
+                android:id="@id/exo_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="3:42" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/extra_button_holder"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/close_player_button"
+                android:layout_width="@dimen/spacing_xls"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="@dimen/spacing_smaller"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/fullscreen_enter_player_button"
+                android:layout_width="@dimen/spacing_xls"
+                android:layout_height="@dimen/spacing_xls"
+                android:padding="@dimen/spacing_xs"
+                android:src="@drawable/exo_icon_fullscreen_enter"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/fullscreen_exit_player_button"
+                android:layout_width="@dimen/spacing_xls"
+                android:layout_height="@dimen/spacing_xls"
+                android:padding="@dimen/spacing_xs"
+                android:src="@drawable/exo_icon_fullscreen_exit"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
